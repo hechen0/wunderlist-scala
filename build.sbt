@@ -10,6 +10,7 @@ lazy val root = (project in file(".")).settings(
   libraryDependencies +=  "org.scalaj" %% "scalaj-http" % "2.3.0",
   libraryDependencies += "com.typesafe.play" %% "play-json" % "2.5.10",
   libraryDependencies += "com.lihaoyi" % "ammonite" % "0.8.0" % "test" cross CrossVersion.full,
+  libraryDependencies += "commons-io" % "commons-io" % "2.5",
   initialCommands in (Test, console) := """ammonite.Main().run()""",
   hello := { println(scala.util.Random.nextInt(100)) }
 )

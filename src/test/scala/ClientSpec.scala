@@ -1,16 +1,13 @@
 package com.hechen0.wunderlist_scala
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Matchers}
 
-class ClientSpec extends FunSpec {
-  it("should have right version") {
-    assert(Client.version === "0.0.1")
-  }
+class ClientSpec extends FunSpec with Matchers {
 
-  it("should return lists"){
-    val lists = Client.lists
+  Credential.set_id(CredentialFile.get_id)
+  Credential.set_token(CredentialFile.get_token)
 
-    for(list <- lists)
-      println(list)
+  it("should work") {
+    Client.user.get.name shouldBe CredentialFile.get_name
   }
 }

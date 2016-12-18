@@ -13,5 +13,7 @@ case class WAvatar(
 
 object WAvatar {
   implicit val listReads: Reads[WAvatar] = Json.reads[WAvatar]
-  implicit def serializeRequest(req: HttpRequest): WAvatar = Json.parse(req.asString.body).as[WAvatar]
+  implicit def serializeRequest(req: HttpRequest): WAvatar = {
+    Json.parse(req.asString.body).as[WAvatar]
+  }
 }

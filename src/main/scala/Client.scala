@@ -1,7 +1,10 @@
 package com.hechen0.wunderlist_scala
 
+import java.io.File
+
 import models._
 import controllers._
+import org.apache.commons.io.FileUtils
 
 import scalaj.http._
 import scala.collection.immutable.HashMap
@@ -47,10 +50,10 @@ object Client {
   }
 
   def main(args: Array[String]): Unit = {
-//    GetToken
   }
 
-  def avatar = AvatarController
+  def avatar = AvatarController()
+  def user = UserController()
 }
 
 
