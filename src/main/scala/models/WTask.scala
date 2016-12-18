@@ -1,4 +1,8 @@
-package com.hechen0.wunderlist_scala
+package models
+
+import play.api.libs.json.{Json, Reads}
+
+import scalaj.http.HttpRequest
 
 case class WTask(
   val id: Long,
@@ -15,3 +19,8 @@ case class WTask(
 //  val completed_by_id: Long
 )
 
+object WTask {
+  implicit val listReads: Reads[WTask] = Json.reads[WTask]
+  implicit def serializeRequest(req: HttpRequest): WTask = Json.parse(req.asString.body).as[WTask]
+
+}
