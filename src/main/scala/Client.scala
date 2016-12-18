@@ -1,16 +1,10 @@
 package com.hechen0.wunderlist_scala
 
-import java.io.File
-
-import models._
 import controllers._
-import org.apache.commons.io.FileUtils
-
-import scalaj.http._
-import scala.collection.immutable.HashMap
 import play.api.libs.json._
-import play.api.libs.json.Reads._
-import play.api.libs.functional.syntax._
+
+import scala.io.StdIn
+import scalaj.http._
 
 object Client {
 
@@ -35,9 +29,9 @@ object Client {
   }
 
   def GetToken {
-    println(f"GOTO: https://www.wunderlist.com/oauth/authorize?client_id=$clientId%s&redirect_uri=$redirectUri%s&state=random")
+    println(s"GOTO: https://www.wunderlist.com/oauth/authorize?client_id=$clientId&redirect_uri=$redirectUri&state=random")
 
-    val code = Console.readLine("Enter code get: ").trim
+    val code = StdIn.readLine("Enter code get: ").trim
 
     val res = Http("https://www.wunderlist.com/oauth/access_token").postForm(Seq(
       "client_id" -> clientId,
