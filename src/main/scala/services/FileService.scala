@@ -23,7 +23,7 @@ case class FileService() extends Request {
       case unkownstring => throw new IllegalArgumentException(unkownstring)
     }
     get_req("files").
-      param(h, id.toString())
+      param(h, id.toString)
   }
 
   def get(id: Long): WFile = {

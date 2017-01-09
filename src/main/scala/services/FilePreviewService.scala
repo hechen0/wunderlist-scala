@@ -10,7 +10,7 @@ case class FilePreviewService() extends Request {
 
   def get(file_id: Long, platform: String, size: String): WFilePreview = {
     get_req("previews").
-      param("file_id", file_id.toString()).
+      param("file_id", file_id.toString).
       param("platform", platform).
       param("size", size)
   }

@@ -1,7 +1,7 @@
 package services
 
 import com.hechen0.wunderlist_scala.Request
-import models._
+import models.WAvatar
 
 /**
   * Created by h on 18/12/2016.
@@ -15,9 +15,6 @@ case class AvatarService() extends Request {
     */
   def get(size: String): WAvatar = {
     val req = get_req("avatar")
-    WAvatar(
-      url: req.asString.location.getOrElse,
-      size: size
-    )
+    WAvatar(req.asString.location.getOrElse("no avatar"),size)
   }
 }
