@@ -1,6 +1,6 @@
 package com.hechen0.wunderlist_scala
 
-import controllers._
+import services._
 import play.api.libs.json._
 
 import scala.io.StdIn
@@ -46,8 +46,8 @@ object Client {
   def main(args: Array[String]): Unit = {
   }
 
-  def avatar = AvatarController()
-  def user = UserController()
+  def avatars = AvatarService()
+  def users = UserService()
 }
 
 

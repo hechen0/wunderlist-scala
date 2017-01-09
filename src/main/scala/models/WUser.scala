@@ -15,4 +15,5 @@ case class WUser(
 object WUser {
   implicit val listReads: Reads[WUser] = Json.reads[WUser]
   implicit def serializeRequest(req: HttpRequest): WUser = Json.parse(req.asString.body).as[WUser]
+  implicit def serializeRequestList(req: HttpRequest): List[WUser] = Json.parse(req.asString.body).as[List[WUser]]
 }

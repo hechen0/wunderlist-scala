@@ -19,6 +19,6 @@ case class WFile(
 object WFile {
   implicit val listReads: Reads[WFile] = Json.reads[WFile]
   implicit def serializeRequest(req: HttpRequest): WFile = Json.parse(req.asString.body).as[WFile]
-
+  implicit def serializeRequestToList(req: HttpRequest): List[WFile] = Json.parse(req.asString.body).as[List[WFile]]
 }
 

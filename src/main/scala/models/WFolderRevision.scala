@@ -12,5 +12,8 @@ case class WFolderRevision(
 
 object WFolderRevision {
   implicit val listReads: Reads[WFolderRevision] = Json.reads[WFolderRevision]
-  implicit def serializeRequest(req: HttpRequest): WFolderRevision = Json.parse(req.asString.body).as[WFolderRevision]
+  implicit def serializeRequest(req: HttpRequest): WFolderRevision =
+    Json.parse(req.asString.body).as[WFolderRevision]
+  implicit def serializeRequestList(req: HttpRequest): List[WFolderRevision] =
+    Json.parse(req.asString.body).as[List[WFolderRevision]]
 }

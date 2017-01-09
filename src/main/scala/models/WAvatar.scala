@@ -8,7 +8,8 @@ import scalaj.http.HttpRequest
   * Created by h on 14/12/2016.
   */
 case class WAvatar(
-  val url: String
+  val url: String,
+  val size: String
 )
 
 object WAvatar {

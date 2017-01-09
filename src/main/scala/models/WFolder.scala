@@ -15,5 +15,5 @@ case class WFolder(
 object WFolder {
   implicit val listReads: Reads[WFolder] = Json.reads[WFolder]
   implicit def serializeRequest(req: HttpRequest): WFolder = Json.parse(req.asString.body).as[WFolder]
-
+  implicit def serializeRequestList(req: HttpRequest): List[WFolder] = Json.parse(req.asString.body).as[List[WFolder]]
 }

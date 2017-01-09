@@ -4,10 +4,8 @@ import play.api.libs.json.Json
 
 import scalaj.http._
 
-trait Request[T] {
+trait Request {
   private lazy val base = "http://a.wunderlist.com/api/v1"
-
-
 
   def get_req(endpoint: String): HttpRequest = {
     Http(s"$base/$endpoint")
